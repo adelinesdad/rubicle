@@ -4,41 +4,69 @@
 <script src="./rubicle.js" lang="text/javascript"></script>
 </head>
 <body onload="refresh()">
-<table>
+<table style="border-width: 1px;">
     <tr>
+        <td></td>
+        <td><button onclick="shiftCol(0, false)">^</button></td>
+        <td><button onclick="shiftCol(1, false)">^</button></td>
+        <td><button onclick="shiftCol(2, false)">^</button></td>
+        <td><button onclick="shiftCol(3, false)">^</button></td>
+        <td><button onclick="shiftCol(4, false)">^</button></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><button onclick="shiftRow(0, false)">&#60;</button></td>
         <td id="cell00"></td>
         <td id="cell01"></td>
         <td id="cell02"></td>
         <td id="cell03"></td>
         <td id="cell04"></td>
+        <td><button onclick="shiftRow(0, true)">&#62;</button></td>
     </tr>
     <tr>
+        <td><button onclick="shiftRow(1, false)">&#60;</button></td>
         <td id="cell10"></td>
         <td id="cell11"></td>
         <td id="cell12"></td>
         <td id="cell13"></td>
         <td id="cell14"></td>
+        <td><button onclick="shiftRow(1, true)">&#62;</button></td>
     </tr>
     <tr>
+        <td><button onclick="shiftRow(2, false)">&#60;</button></td>
         <td id="cell20"></td>
         <td id="cell21"></td>
         <td id="cell22"></td>
         <td id="cell23"></td>
         <td id="cell24"></td>
+        <td><button onclick="shiftRow(2, true)">&#62;</button></td>
     </tr>
     <tr>
+        <td><button onclick="shiftRow(3, false)">&#60;</button></td>
         <td id="cell30"></td>
         <td id="cell31"></td>
         <td id="cell32"></td>
         <td id="cell33"></td>
         <td id="cell34"></td>
+        <td><button onclick="shiftRow(3, true)">&#62;</button></td>
     </tr>
     <tr>
+        <td><button onclick="shiftRow(4, false)">&#60;</button></td>
         <td id="cell40"></td>
         <td id="cell41"></td>
         <td id="cell42"></td>
         <td id="cell43"></td>
         <td id="cell44"></td>
+        <td><button onclick="shiftRow(4, true)">&#62;</button></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button onclick="shiftCol(0, true)">v</button></td>
+        <td><button onclick="shiftCol(1, true)">v</button></td>
+        <td><button onclick="shiftCol(2, true)">v</button></td>
+        <td><button onclick="shiftCol(3, true)">v</button></td>
+        <td><button onclick="shiftCol(4, true)">v</button></td>
+        <td></td>
     </tr>
 </table>
 </body>
