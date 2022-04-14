@@ -98,7 +98,7 @@ function shiftRow(rowNum, isRight) {
     }
     moves++;
     var line = document.createElement('div');
-    line.innerText =  "Move " + moves + ": Shift row " + rowNum + " " + (isRight ? "right" : "left");
+    line.innerText =  "Move " + moves + ": Shift row " + (rowNum+1) + " " + (isRight ? "right" : "left");
     log.appendChild(line);
     refresh();
 }
@@ -119,7 +119,7 @@ function shiftCol(colNum, isDown) {
     }
     moves++;
     var line = document.createElement('div');
-    line.innerText = "Move " + moves + ": Shift column " + colNum + " " + (isDown ? "down" : "up");
+    line.innerText = "Move " + moves + ": Shift column " + (colNum+1) + " " + (isDown ? "down" : "up");
     log.appendChild(line);
     refresh();
 }
