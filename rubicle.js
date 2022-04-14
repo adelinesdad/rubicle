@@ -18,10 +18,40 @@ function refresh() {
         for (var j=0;j<current[i].length;j++) {
             const elem = document.getElementById('cell' + i + j);
             elem.innerText = current[i][j].toUpperCase();
+            elem.classList.remove("correct", "sameRowOrCol");
+        }
+    }
+
+    for (var i=0;i<answer.length;i++) {
+        for (var j=0;j<answer[i].length;j++) {
             if (current[i][j] === answer[i][j]) {
+                const elem = document.getElementById('cell' + i + j);
                 elem.classList.add('correct');
-            } else {
-                elem.classList.remove('correct');
+            }
+        }
+    }
+
+    for (var i=0;i<answer.length;i++) {
+        for (var j=0;j<answer[i].length;j++) {
+            if (current[i][j] !== answer[i][j]) {
+                for (var x=0; x<answer[i].length;x++) {
+                    if (x !== j && answer[i][j] === current[i][x]) {
+                        const elem = document.getElementById('cell' + i + x);
+                        if (!elem.classList.contains("correct") && !elem.classList.contains("sameRowOrCol")) {
+                            elem.classList.add("sameRowOrCol");
+                            break;
+                        }
+                    }
+                }
+                for (var x=0; x<answer.length;x++) {
+                    if (x !== i && answer[i][j] === current[x][j]) {
+                        const elem = document.getElementById('cell' + x + j);
+                        if (!elem.classList.contains("correct") && !elem.classList.contains("sameRowOrCol")) {
+                            elem.classList.add("sameRowOrCol");
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

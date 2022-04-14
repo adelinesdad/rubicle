@@ -18,3 +18,7 @@ button {
 .correct {
     background-color: green;
 }
+
+.sameRowOrCol {
+    background-color: yellow;
+}
