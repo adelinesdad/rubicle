@@ -21,3 +21,37 @@ function refresh() {
         }
     }
 }
+
+function shiftRow(rowNum, isRight) {
+    if (isRight) {
+        const shiftedOff = current[rowNum][current[rowNum].length - 1];
+        for (var i = current[rowNum].length - 1; i > 0; i--) {
+            current[rowNum][i] = current[rowNum][i-1];
+        }
+        current[rowNum][0] = shiftedOff;
+    } else {
+        const shiftedOff = current[rowNum][0];
+        for (var i = 0; i < current[rowNum].length - 1; i++) {
+            current[rowNum][i] = current[rowNum][i+1];
+        }
+        current[rowNum][current[rowNum].length-1] = shiftedOff;        
+    }
+    refresh();
+}
+
+function shiftCol(colNum, isDown) {
+    if (isDown) {
+        const shiftedOff = current[current.length - 1][colNum];
+        for (var i = current.length - 1; i > 0; i--) {
+            current[i][colNum] = current[i-1][colNum];
+        }
+        current[0][colNum] = shiftedOff;
+    } else {
+        const shiftedOff = current[0][colNum];
+        for (var i = 0; i < current.length - 1; i++) {
+            current[i][colNum] = current[i+1][colNum];
+        }
+        current[current.length-1][colNum] = shiftedOff;        
+    }
+    refresh();
+}
