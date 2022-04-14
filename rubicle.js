@@ -77,7 +77,9 @@ function finish() {
     for (var i=0; i<coll.length; i++) {
         coll[i].disabled = true;
     }
-    log.innerText += "Finished in " + moves + " moves.";
+    var line = document.createElement('div');
+    line.innerText = "Finished in " + moves + " moves.";
+    log.appendChild(line);
 }
 
 function shiftRow(rowNum, isRight) {
