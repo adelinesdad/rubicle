@@ -95,7 +95,9 @@ function shiftRow(rowNum, isRight) {
         current[rowNum][current[rowNum].length-1] = shiftedOff;        
     }
     moves++;
-    log.innerText += "\r\n Move " + moves + ": Shift row " + rowNum + " " + isRight ? "right" : "left";
+    var line = document.createElement('div');
+    line.innerText =  "Move " + moves + ": Shift row " + rowNum + " " + (isRight ? "right" : "left");
+    log.appendChild(line);
     refresh();
 }
 
@@ -114,6 +116,8 @@ function shiftCol(colNum, isDown) {
         current[current.length-1][colNum] = shiftedOff;        
     }
     moves++;
-    log.innerText += "\r\n Move " + moves + ": Shift column " + colNum + " " + isDown ? "down" : "up";
+    var line = document.createElement('div');
+    line.innerText = "Move " + moves + ": Shift column " + colNum + " " + (isDown ? "down" : "up");
+    log.appendChild(line);
     refresh();
 }
