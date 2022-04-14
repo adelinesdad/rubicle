@@ -13,6 +13,14 @@ const current = [
     ['s', 'l', 'u', 'p', 'p']
 ];
 
+var log;
+var moves = 0;
+
+function init() {
+    refresh();
+    log = document.getElementById('log');
+}
+
 function refresh() {
     for (var i=0;i<current.length;i++) {
         for (var j=0;j<current[i].length;j++) {
@@ -22,13 +30,20 @@ function refresh() {
         }
     }
 
+    var finished = true;
     for (var i=0;i<answer.length;i++) {
         for (var j=0;j<answer[i].length;j++) {
             if (current[i][j] === answer[i][j]) {
                 const elem = document.getElementById('cell' + i + j);
                 elem.classList.add('correct');
+            } else {
+                finished = false;
             }
         }
+    }
+    if (finished) {
+        finish();
+        return;
     }
 
     for (var i=0;i<answer.length;i++) {
@@ -57,6 +72,14 @@ function refresh() {
     }
 }
 
+function finish() {
+    const coll = document.getElementsByTagName('button');
+    for (var i=0; i<coll.length; i++) {
+        coll[i].disabled = true;
+    }
+    log.innerText += "Finished in " + moves + " moves.";
+}
+
 function shiftRow(rowNum, isRight) {
     if (isRight) {
         const shiftedOff = current[rowNum][current[rowNum].length - 1];
@@ -71,6 +94,8 @@ function shiftRow(rowNum, isRight) {
         }
         current[rowNum][current[rowNum].length-1] = shiftedOff;        
     }
+    moves++;
+    log.innerText += "\r\n Move " + moves + ": Shift row " + rowNum + " " + isRight ? "right" : "left";
     refresh();
 }
 
@@ -88,5 +113,7 @@ function shiftCol(colNum, isDown) {
         }
         current[current.length-1][colNum] = shiftedOff;        
     }
+    moves++;
+    log.innerText += "\r\n Move " + moves + ": Shift column " + colNum + " " + isDown ? "down" : "up";
     refresh();
 }
