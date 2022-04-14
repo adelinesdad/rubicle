@@ -17,7 +17,12 @@ function refresh() {
     for (var i=0;i<current.length;i++) {
         for (var j=0;j<current[i].length;j++) {
             const elem = document.getElementById('cell' + i + j);
-            elem.innerText = current[i][j];
+            elem.innerText = current[i][j].toUpperCase();
+            if (current[i][j] === answer[i][j]) {
+                elem.classList.add('correct');
+            } else {
+                elem.classList.remove('correct');
+            }
         }
     }
 }
